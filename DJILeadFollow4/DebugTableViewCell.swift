@@ -10,6 +10,19 @@ import UIKit
 
 class DebugTableViewCell: UITableViewCell {
 
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var valueLabel: UILabel!
+    var name : String! {
+        didSet {
+            nameLabel.text = name
+        }
+    }
+    var value : String! {
+        didSet {
+            valueLabel.text = value
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +33,4 @@ class DebugTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

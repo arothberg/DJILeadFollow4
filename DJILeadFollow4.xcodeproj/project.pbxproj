@@ -10,11 +10,10 @@
 		41B072A948568DAF397D7D44 /* Pods_DJILeadFollow4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724114041F0C6EDDA41AD76C /* Pods_DJILeadFollow4.framework */; };
 		668DC1622013E583004CA07E /* TableDebug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 668DC1612013E583004CA07E /* TableDebug.storyboard */; };
 		668DC1642013E60B004CA07E /* DebugTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DC1632013E60B004CA07E /* DebugTableViewCell.swift */; };
+		668DC1842013ECAC004CA07E /* DebugTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DC1832013ECAC004CA07E /* DebugTableViewController.swift */; };
+		668DC1882013FA4F004CA07E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 668DC1872013FA4E004CA07E /* GoogleService-Info.plist */; };
 		66D416A12013BD2400383BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D416A02013BD2400383BED /* AppDelegate.swift */; };
-		66D416A32013BD2400383BED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D416A22013BD2400383BED /* ViewController.swift */; };
-		66D416A62013BD2400383BED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D416A42013BD2400383BED /* Main.storyboard */; };
 		66D416A82013BD2400383BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66D416A72013BD2400383BED /* Assets.xcassets */; };
-		66D416AB2013BD2400383BED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D416A92013BD2400383BED /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,12 +21,11 @@
 		192F526442ADCAB11944D87D /* Pods-DJILeadFollow4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DJILeadFollow4.release.xcconfig"; path = "Pods/Target Support Files/Pods-DJILeadFollow4/Pods-DJILeadFollow4.release.xcconfig"; sourceTree = "<group>"; };
 		668DC1612013E583004CA07E /* TableDebug.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableDebug.storyboard; sourceTree = "<group>"; };
 		668DC1632013E60B004CA07E /* DebugTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugTableViewCell.swift; sourceTree = "<group>"; };
+		668DC1832013ECAC004CA07E /* DebugTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugTableViewController.swift; sourceTree = "<group>"; };
+		668DC1872013FA4E004CA07E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		66D4169D2013BD2400383BED /* DJILeadFollow4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DJILeadFollow4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D416A02013BD2400383BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		66D416A22013BD2400383BED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		66D416A52013BD2400383BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		66D416A72013BD2400383BED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		66D416AA2013BD2400383BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66D416AC2013BD2400383BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		724114041F0C6EDDA41AD76C /* Pods_DJILeadFollow4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DJILeadFollow4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -66,12 +64,11 @@
 			isa = PBXGroup;
 			children = (
 				66D416A02013BD2400383BED /* AppDelegate.swift */,
-				66D416A22013BD2400383BED /* ViewController.swift */,
-				66D416A42013BD2400383BED /* Main.storyboard */,
 				66D416A72013BD2400383BED /* Assets.xcassets */,
-				66D416A92013BD2400383BED /* LaunchScreen.storyboard */,
 				668DC1612013E583004CA07E /* TableDebug.storyboard */,
 				66D416AC2013BD2400383BED /* Info.plist */,
+				668DC1872013FA4E004CA07E /* GoogleService-Info.plist */,
+				668DC1832013ECAC004CA07E /* DebugTableViewController.swift */,
 				668DC1632013E60B004CA07E /* DebugTableViewCell.swift */,
 			);
 			path = DJILeadFollow4;
@@ -156,10 +153,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66D416AB2013BD2400383BED /* LaunchScreen.storyboard in Resources */,
 				66D416A82013BD2400383BED /* Assets.xcassets in Resources */,
-				66D416A62013BD2400383BED /* Main.storyboard in Resources */,
 				668DC1622013E583004CA07E /* TableDebug.storyboard in Resources */,
+				668DC1882013FA4F004CA07E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,14 +186,18 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-DJILeadFollow4/Pods-DJILeadFollow4-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${PODS_ROOT}/DJI-SDK-iOS/iOS_Mobile_SDK/DJISDK.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DJISDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,32 +230,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66D416A32013BD2400383BED /* ViewController.swift in Sources */,
 				66D416A12013BD2400383BED /* AppDelegate.swift in Sources */,
 				668DC1642013E60B004CA07E /* DebugTableViewCell.swift in Sources */,
+				668DC1842013ECAC004CA07E /* DebugTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		66D416A42013BD2400383BED /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				66D416A52013BD2400383BED /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		66D416A92013BD2400383BED /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				66D416AA2013BD2400383BED /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		66D416AD2013BD2400383BED /* Debug */ = {
@@ -374,7 +355,7 @@
 				DEVELOPMENT_TEAM = AU659F828V;
 				INFOPLIST_FILE = DJILeadFollow4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = artgs.dev.DJILeadFollow4;
+				PRODUCT_BUNDLE_IDENTIFIER = artgs.dev.DJILeadFollow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -390,7 +371,7 @@
 				DEVELOPMENT_TEAM = AU659F828V;
 				INFOPLIST_FILE = DJILeadFollow4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = artgs.dev.DJILeadFollow4;
+				PRODUCT_BUNDLE_IDENTIFIER = artgs.dev.DJILeadFollow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

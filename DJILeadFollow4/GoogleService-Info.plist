@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>754690600637-0uam92h92qv7nq0bn7rb02t5t7h5ki76.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.754690600637-0uam92h92qv7nq0bn7rb02t5t7h5ki76</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCiBFTjTJktTwjJ6D1isj99p3WZ3YJC5bQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>754690600637</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>artgs.dev.DJILeadFollow</string>
+	<key>PROJECT_ID</key>
+	<string>djileadfollow</string>
+	<key>STORAGE_BUCKET</key>
+	<string>djileadfollow.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:754690600637:ios:09396c35200db3b4</string>
+	<key>DATABASE_URL</key>
+	<string>https://djileadfollow.firebaseio.com</string>
+</dict>
+</plist>
