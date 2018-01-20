@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		41B072A948568DAF397D7D44 /* Pods_DJILeadFollow4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724114041F0C6EDDA41AD76C /* Pods_DJILeadFollow4.framework */; };
+		668DC1622013E583004CA07E /* TableDebug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 668DC1612013E583004CA07E /* TableDebug.storyboard */; };
+		668DC1642013E60B004CA07E /* DebugTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DC1632013E60B004CA07E /* DebugTableViewCell.swift */; };
 		66D416A12013BD2400383BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D416A02013BD2400383BED /* AppDelegate.swift */; };
 		66D416A32013BD2400383BED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D416A22013BD2400383BED /* ViewController.swift */; };
 		66D416A62013BD2400383BED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D416A42013BD2400383BED /* Main.storyboard */; };
@@ -18,6 +20,8 @@
 /* Begin PBXFileReference section */
 		0C21A5AD48C441C196D7E0E6 /* Pods-DJILeadFollow4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DJILeadFollow4.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DJILeadFollow4/Pods-DJILeadFollow4.debug.xcconfig"; sourceTree = "<group>"; };
 		192F526442ADCAB11944D87D /* Pods-DJILeadFollow4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DJILeadFollow4.release.xcconfig"; path = "Pods/Target Support Files/Pods-DJILeadFollow4/Pods-DJILeadFollow4.release.xcconfig"; sourceTree = "<group>"; };
+		668DC1612013E583004CA07E /* TableDebug.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableDebug.storyboard; sourceTree = "<group>"; };
+		668DC1632013E60B004CA07E /* DebugTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugTableViewCell.swift; sourceTree = "<group>"; };
 		66D4169D2013BD2400383BED /* DJILeadFollow4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DJILeadFollow4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D416A02013BD2400383BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66D416A22013BD2400383BED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +70,9 @@
 				66D416A42013BD2400383BED /* Main.storyboard */,
 				66D416A72013BD2400383BED /* Assets.xcassets */,
 				66D416A92013BD2400383BED /* LaunchScreen.storyboard */,
+				668DC1612013E583004CA07E /* TableDebug.storyboard */,
 				66D416AC2013BD2400383BED /* Info.plist */,
+				668DC1632013E60B004CA07E /* DebugTableViewCell.swift */,
 			);
 			path = DJILeadFollow4;
 			sourceTree = "<group>";
@@ -153,6 +159,7 @@
 				66D416AB2013BD2400383BED /* LaunchScreen.storyboard in Resources */,
 				66D416A82013BD2400383BED /* Assets.xcassets in Resources */,
 				66D416A62013BD2400383BED /* Main.storyboard in Resources */,
+				668DC1622013E583004CA07E /* TableDebug.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +232,7 @@
 			files = (
 				66D416A32013BD2400383BED /* ViewController.swift in Sources */,
 				66D416A12013BD2400383BED /* AppDelegate.swift in Sources */,
+				668DC1642013E60B004CA07E /* DebugTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
