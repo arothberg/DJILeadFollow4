@@ -99,6 +99,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func registerApp() {
+        updateStatusLabel(status: "Registering DJI...")
         DJISDKManager.registerApp(with: self)
     }
     
@@ -107,7 +108,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let result = "Registration Error: \(error.debugDescription)"
             DemoUtility.showMessage(title: "DJI", message: result, view: self)
         } else {
-            DemoUtility.showMessage(title: "DJI", message: "Registered!", view: self)
+            updateStatusLabel(status: "DJI Registered")
+            //DemoUtility.showMessage(title: "DJI", message: "Registered!", view: self)
             DJISDKManager.startConnectionToProduct()
         }
     }
@@ -116,7 +118,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if (product != nil) {
             let flightController = DemoUtility.fetchFlightController()
             flightController?.delegate = self
-            print("Flight Controller Worked!")
+            updateStatusLabel(status: "Flight Controller obtained!")
         } else {
             DemoUtility.showMessage(title: "DJI", message: "Product Disconnected", view: self)
         }
@@ -135,15 +137,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let radianYaw = state.attitude.yaw * Double.pi / 180
             self.mapController?.updateAircraft(heading: Float(radianYaw))
             
-            updateStatusLabel()
+            let latitude = String.localizedStringWithFormat("%.5f", self.droneLocation.latitude)
+            let longitude = String.localizedStringWithFormat("%.5f", self.droneLocation.longitude)
+            let status = "Location: \(latitude):\(longitude)\nMode: \(self.mode)    GPS: \(self.gps)    HS: \(self.hs)   VS: \(self.vs)  Alt: \(self.altitude)"
+            updateStatusLabel(status: status)
 
             let kv : [String : Any] = [
                 "latitude" : self.droneLocation.latitude,
                 "longitude" : self.droneLocation.longitude,
                 "mode" : self.mode,
                 "gps" : self.gps,
-                "vs (m/s)" : self.vs,
-                "hs (m/s)" : self.hs,
+                "vs (m per s)" : self.vs,
+                "hs (m per s)" : self.hs,
                 "altitude" : self.altitude
             ]
             kv.forEach({ (k, v) in
@@ -152,11 +157,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-    private func updateStatusLabel () {
+    private func updateStatusLabel (status : String) {
         DispatchQueue.main.async {
-            let latitude = String.localizedStringWithFormat("%.5f", self.droneLocation.latitude)
-            let longitude = String.localizedStringWithFormat("%.5f", self.droneLocation.longitude)
-            self.labelStatus.text = "Location: \(latitude):\(longitude)\nMode: \(self.mode)    GPS: \(self.gps)    HS: \(self.hs)   VS: \(self.vs)  Alt: \(self.altitude)"
+            print("Status Label: \(status)")
+            self.labelStatus.text = status
         }
     }
     

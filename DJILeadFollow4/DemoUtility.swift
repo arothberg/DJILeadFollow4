@@ -22,7 +22,7 @@ class DemoUtility {
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(alertAction)
-            alertController.show(view, sender: nil)
+            view.present(alertController, animated: true, completion: nil)
         }
     }
     
