@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		41B072A948568DAF397D7D44 /* Pods_DJILeadFollow4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724114041F0C6EDDA41AD76C /* Pods_DJILeadFollow4.framework */; };
-		668DC1622013E583004CA07E /* TableDebug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 668DC1612013E583004CA07E /* TableDebug.storyboard */; };
+		668DC1622013E583004CA07E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 668DC1612013E583004CA07E /* Main.storyboard */; };
 		668DC1642013E60B004CA07E /* DebugTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DC1632013E60B004CA07E /* DebugTableViewCell.swift */; };
 		668DC1842013ECAC004CA07E /* DebugTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DC1832013ECAC004CA07E /* DebugTableViewController.swift */; };
 		668DC1882013FA4F004CA07E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 668DC1872013FA4E004CA07E /* GoogleService-Info.plist */; };
+		668DC18B20144833004CA07E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DC18A20144833004CA07E /* MapViewController.swift */; };
+		668DC18D20145434004CA07E /* DJIAircraftAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DC18C20145434004CA07E /* DJIAircraftAnnotationView.swift */; };
+		668DC191201456C2004CA07E /* DJIAircraftAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DC190201456C2004CA07E /* DJIAircraftAnnotation.swift */; };
 		66D416A12013BD2400383BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D416A02013BD2400383BED /* AppDelegate.swift */; };
 		66D416A82013BD2400383BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66D416A72013BD2400383BED /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -19,10 +22,13 @@
 /* Begin PBXFileReference section */
 		0C21A5AD48C441C196D7E0E6 /* Pods-DJILeadFollow4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DJILeadFollow4.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DJILeadFollow4/Pods-DJILeadFollow4.debug.xcconfig"; sourceTree = "<group>"; };
 		192F526442ADCAB11944D87D /* Pods-DJILeadFollow4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DJILeadFollow4.release.xcconfig"; path = "Pods/Target Support Files/Pods-DJILeadFollow4/Pods-DJILeadFollow4.release.xcconfig"; sourceTree = "<group>"; };
-		668DC1612013E583004CA07E /* TableDebug.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableDebug.storyboard; sourceTree = "<group>"; };
+		668DC1612013E583004CA07E /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		668DC1632013E60B004CA07E /* DebugTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugTableViewCell.swift; sourceTree = "<group>"; };
 		668DC1832013ECAC004CA07E /* DebugTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugTableViewController.swift; sourceTree = "<group>"; };
 		668DC1872013FA4E004CA07E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		668DC18A20144833004CA07E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		668DC18C20145434004CA07E /* DJIAircraftAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJIAircraftAnnotationView.swift; sourceTree = "<group>"; };
+		668DC190201456C2004CA07E /* DJIAircraftAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJIAircraftAnnotation.swift; sourceTree = "<group>"; };
 		66D4169D2013BD2400383BED /* DJILeadFollow4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DJILeadFollow4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D416A02013BD2400383BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66D416A72013BD2400383BED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,11 +71,14 @@
 			children = (
 				66D416A02013BD2400383BED /* AppDelegate.swift */,
 				66D416A72013BD2400383BED /* Assets.xcassets */,
-				668DC1612013E583004CA07E /* TableDebug.storyboard */,
+				668DC1612013E583004CA07E /* Main.storyboard */,
 				66D416AC2013BD2400383BED /* Info.plist */,
 				668DC1872013FA4E004CA07E /* GoogleService-Info.plist */,
 				668DC1832013ECAC004CA07E /* DebugTableViewController.swift */,
 				668DC1632013E60B004CA07E /* DebugTableViewCell.swift */,
+				668DC18A20144833004CA07E /* MapViewController.swift */,
+				668DC18C20145434004CA07E /* DJIAircraftAnnotationView.swift */,
+				668DC190201456C2004CA07E /* DJIAircraftAnnotation.swift */,
 			);
 			path = DJILeadFollow4;
 			sourceTree = "<group>";
@@ -154,7 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66D416A82013BD2400383BED /* Assets.xcassets in Resources */,
-				668DC1622013E583004CA07E /* TableDebug.storyboard in Resources */,
+				668DC1622013E583004CA07E /* Main.storyboard in Resources */,
 				668DC1882013FA4F004CA07E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,7 +241,10 @@
 			files = (
 				66D416A12013BD2400383BED /* AppDelegate.swift in Sources */,
 				668DC1642013E60B004CA07E /* DebugTableViewCell.swift in Sources */,
+				668DC191201456C2004CA07E /* DJIAircraftAnnotation.swift in Sources */,
 				668DC1842013ECAC004CA07E /* DebugTableViewController.swift in Sources */,
+				668DC18D20145434004CA07E /* DJIAircraftAnnotationView.swift in Sources */,
+				668DC18B20144833004CA07E /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
