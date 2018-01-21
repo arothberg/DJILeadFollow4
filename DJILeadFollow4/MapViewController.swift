@@ -37,6 +37,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.showsUserLocation = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.locationManager.startUpdatingLocation()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.locationManager.stopUpdatingLocation()
+    }
+    
     func updateAircraft(location : CLLocationCoordinate2D, withMapView : MKMapView) {
         if (aircraftAnnotation == nil) {
             aircraftAnnotation = DJIAircraftAnnotation(coordinate: location)

@@ -39,13 +39,19 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="J1c-ow-as3">
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kt-Gq-Znf">
+                                <rect key="frame" x="0.0" y="20" width="56" height="30"/>
+                                <state key="normal" title="Refocus"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="5kt-Gq-Znf" firstAttribute="leading" secondItem="8Ch-Iq-h7L" secondAttribute="leading" id="6iF-ql-0PA"/>
                             <constraint firstItem="J1c-ow-as3" firstAttribute="top" secondItem="8Ch-Iq-h7L" secondAttribute="top" id="Cz3-yT-bsg"/>
                             <constraint firstItem="J1c-ow-as3" firstAttribute="leading" secondItem="8Ch-Iq-h7L" secondAttribute="leading" id="Fb7-wn-8t6"/>
                             <constraint firstItem="J1c-ow-as3" firstAttribute="bottom" secondItem="8Ch-Iq-h7L" secondAttribute="bottom" id="Ogw-wj-6SY"/>
                             <constraint firstItem="J1c-ow-as3" firstAttribute="trailing" secondItem="8Ch-Iq-h7L" secondAttribute="trailing" id="a8V-jZ-wQa"/>
+                            <constraint firstItem="5kt-Gq-Znf" firstAttribute="top" secondItem="8Ch-Iq-h7L" secondAttribute="top" id="qLh-XE-OR2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Ch-Iq-h7L"/>
                     </view>
