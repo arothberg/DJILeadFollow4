@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import DJISDK
 
 class DebugInfo {
     let name : String!
@@ -20,17 +19,9 @@ class DebugInfo {
     }
 }
 
-class DebugTableViewController: UITableViewController, DJISDKManagerDelegate {
+class DebugTableViewController: UITableViewController {
     
     var debugInfo = [DebugInfo]()
-    var dbref : DatabaseReference!
-
-    // DJI Register
-    func appRegisteredWithError(_ error: Error?) {
-        if error != nil {
-            fatalError("Could not register DJI \(String(describing: error))")
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,17 +33,12 @@ class DebugTableViewController: UITableViewController, DJISDKManagerDelegate {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         debugInfo += [DebugInfo(name: "Coordinates")]
-
-        DJISDKManager.registerApp(with: self)
-
-        self.dbref = Database.database().reference()
-        dbref.child("leaderCoordinates").observe(DataEventType.value, with: { (snapshot) in
+        DemoUtility.dbref.child("leaderCoordinates").observe(DataEventType.value, with: { [weak self] (snapshot) in
             let value = snapshot.value
-            self.debugInfo[0].value = value as? String ?? "error"
-            self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: UITableViewRowAnimation.fade)
+            self?.debugInfo[0].value = value as? String ?? "error"
+            self?.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: UITableViewRowAnimation.fade)
         })
     }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

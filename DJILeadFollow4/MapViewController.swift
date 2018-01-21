@@ -9,14 +9,51 @@
 import UIKit
 import MapKit
 import CoreLocation
+import DJISDK
+import Firebase
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, DJISDKManagerDelegate, DJIFlightControllerDelegate {
+    
     @IBOutlet var mapView: MKMapView!
+    @IBOutlet var editButton: UIButton!
+    @IBOutlet var labelStatus: UILabel!
+    
+    @IBAction func refocusMap(_ sender: UIButton) {
+        if (CLLocationCoordinate2DIsValid(self.droneLocation)) {
+            let location = CLLocation(latitude: self.droneLocation.latitude, longitude: self.droneLocation.longitude)
+            focusMap(location: location)
+        }
+        else if let userLocation = locationManager.location?.coordinate {
+            let location = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
+            focusMap(location: location)
+        }
+    }
+    
+    @IBAction func editPoints(_ sender: UIButton) {
+        if self.isEditingPoints {
+            self.mapController?.cleanAllPoints(mapView: self.mapView)
+            sender.setTitle("Edit", for: UIControlState.normal)
+        }
+        else {
+            sender.setTitle("Reset", for: UIControlState.normal)
+        }
+        self.isEditingPoints = !self.isEditingPoints
+    }
     
     let regionRadius: CLLocationDistance = 200
     let locationManager = CLLocationManager()
-    var aircraftAnnotation : DJIAircraftAnnotation?
+    var mapController : DJIMapController?
+    var isEditingPoints = false
     
+    var mode = "N/A"
+    var gps = "0"
+    var hs = "0.0 M/S"
+    var vs = "0.0 M/S"
+    var altitude = "0 M"
+    
+    var droneLocation = kCLLocationCoordinate2DInvalid
+    var userLocation = kCLLocationCoordinate2DInvalid
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,9 +63,23 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
         
+        // SDK
+        registerApp()
+        
+        // map controller
+        self.mapController = DJIMapController()
+        
+        // edit
+        self.isEditingPoints = false
+        editButton.setTitle("Edit", for: UIControlState.normal)
+        
+        //
+        self.mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addWayPoints(tapGesture:))))
+        
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.distanceFilter = 0.1
             locationManager.startUpdatingLocation()
         }
 
@@ -47,28 +98,92 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.locationManager.stopUpdatingLocation()
     }
     
-    func updateAircraft(location : CLLocationCoordinate2D, withMapView : MKMapView) {
-        if (aircraftAnnotation == nil) {
-            aircraftAnnotation = DJIAircraftAnnotation(coordinate: location)
-            withMapView.addAnnotation(aircraftAnnotation!)
-        }
-        aircraftAnnotation!.coordinate = location
+    func registerApp() {
+        DJISDKManager.registerApp(with: self)
     }
     
-    func updateAircraft(heading : Float) {
-        aircraftAnnotation?.updateHeading(heading: heading)
+    func appRegisteredWithError(_ error: Error?) {
+        if error != nil {
+            let result = "Registration Error: \(error.debugDescription)"
+            DemoUtility.showMessage(title: "DJI", message: result, view: self)
+        } else {
+            DemoUtility.showMessage(title: "DJI", message: "Registered!", view: self)
+            DJISDKManager.startConnectionToProduct()
+        }
     }
+    
+    func productConnected(_ product: DJIBaseProduct?) {
+        if (product != nil) {
+            let flightController = DemoUtility.fetchFlightController()
+            flightController?.delegate = self
+            print("Flight Controller Worked!")
+        } else {
+            DemoUtility.showMessage(title: "DJI", message: "Product Disconnected", view: self)
+        }
+    }
+    
+    func flightController(_ fc: DJIFlightController, didUpdate state: DJIFlightControllerState) {
+        if let aircraftLocation = state.aircraftLocation {
+            self.droneLocation = aircraftLocation.coordinate
+            self.mode = state.flightModeString
+            self.gps = "\(state.satelliteCount)"
+            self.vs = "\(state.velocityZ)"
+            self.hs = "\(sqrtf(state.velocityX*state.velocityX + state.velocityY*state.velocityY))"
+            self.altitude = "\(state.altitude)"
+            
+            self.mapController?.updateAircraft(location: self.droneLocation, mapView: self.mapView)
+            let radianYaw = state.attitude.yaw * Double.pi / 180
+            self.mapController?.updateAircraft(heading: Float(radianYaw))
+            
+            updateStatusLabel()
 
-    func cleanAllPoints(withMapView : MKMapView) {
-        let annotations = withMapView.annotations
-        annotations.forEach { (annotation) in
-            if !annotation.isEqual(self.aircraftAnnotation) {
-                mapView.removeAnnotation(annotation)
+            let kv : [String : Any] = [
+                "latitude" : self.droneLocation.latitude,
+                "longitude" : self.droneLocation.longitude,
+                "mode" : self.mode,
+                "gps" : self.gps,
+                "vs (m/s)" : self.vs,
+                "hs (m/s)" : self.hs,
+                "altitude" : self.altitude
+            ]
+            kv.forEach({ (k, v) in
+                DemoUtility.dbref.child("leader/\(k)").setValue(v)
+            })
+        }
+    }
+    
+    private func updateStatusLabel () {
+        DispatchQueue.main.async {
+            let latitude = String.localizedStringWithFormat("%.5f", self.droneLocation.latitude)
+            let longitude = String.localizedStringWithFormat("%.5f", self.droneLocation.longitude)
+            self.labelStatus.text = "Location: \(latitude):\(longitude)\nMode: \(self.mode)    GPS: \(self.gps)    HS: \(self.hs)   VS: \(self.vs)  Alt: \(self.altitude)"
+        }
+    }
+    
+    @objc func addWayPoints(tapGesture : UITapGestureRecognizer) {
+        let point = tapGesture.location(in: self.mapView)
+        if (tapGesture.state == UIGestureRecognizerState.ended) {
+            if (self.isEditingPoints) {
+                self.mapController?.addPoint(point: point, mapView: self.mapView)
             }
         }
     }
     
-    func centerMap(location: CLLocation)
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation.isKind(of: DJIAircraftAnnotation.self) {
+            let annoView = DJIAircraftAnnotationView(annotation: annotation, reuseIdentifier: "Aircraft_Annotation")
+            (annotation as! DJIAircraftAnnotation).annotationView = annoView
+            return annoView
+        } else if annotation.isKind(of: MKPointAnnotation.self) {
+            let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "Pin_Annotation")
+            pinView.pinTintColor = UIColor.purple
+            return pinView
+        }
+        
+        return nil
+    }
+    
+    func focusMap(location: CLLocation)
     {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   regionRadius * 2.0, regionRadius * 2.0)
@@ -76,10 +191,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let locValue = manager.location?.coordinate {
-            //print("locations = \(locValue.latitude) \(locValue.longitude)")
-            centerMap(location: CLLocation(latitude: locValue.latitude, longitude: locValue.longitude))
-        }
+//        if let locValue = manager.location?.coordinate {
+//            //print("locations = \(locValue.latitude) \(locValue.longitude)")
+//            focusMap(location: CLLocation(latitude: locValue.latitude, longitude: locValue.longitude))
+//        }
     }
     
     override func didReceiveMemoryWarning() {
