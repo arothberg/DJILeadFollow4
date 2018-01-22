@@ -18,6 +18,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet var editButton: UIButton!
     @IBOutlet var labelStatus: UILabel!
     
+    @IBAction func dropBeacon(_ sender: UIButton) {
+        let location = self.droneLocation
+        if CLLocationCoordinate2DIsValid(location) {
+            DemoUtility.dbref.child("game/beacon/longitude").setValue(location.longitude)
+            DemoUtility.dbref.child("game/beacon/latitude").setValue(location.latitude)
+        }
+    }
+    
     @IBAction func refocusMap(_ sender: UIButton) {
         if (CLLocationCoordinate2DIsValid(self.droneLocation)) {
             let location = CLLocation(latitude: self.droneLocation.latitude, longitude: self.droneLocation.longitude)
@@ -152,7 +160,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 "altitude" : self.altitude
             ]
             kv.forEach({ (k, v) in
-                DemoUtility.dbref.child("leader/\(k)").setValue(v)
+                DemoUtility.dbref.child("game/leader/\(k)").setValue(v)
             })
         }
     }

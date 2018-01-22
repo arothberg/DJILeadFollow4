@@ -59,6 +59,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0YA-le-21L">
+                                <rect key="frame" x="164" y="20" width="52" height="30"/>
+                                <state key="normal" title="Beacon"/>
+                                <connections>
+                                    <action selector="dropBeacon:" destination="c5e-zw-vAQ" eventType="touchUpInside" id="KEa-8b-lVx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -71,8 +78,10 @@
                             <constraint firstItem="i43-4v-kxO" firstAttribute="top" secondItem="8Ch-Iq-h7L" secondAttribute="top" id="Yez-oJ-4rj"/>
                             <constraint firstItem="J1c-ow-as3" firstAttribute="trailing" secondItem="8Ch-Iq-h7L" secondAttribute="trailing" id="a8V-jZ-wQa"/>
                             <constraint firstItem="kNK-Ef-yCu" firstAttribute="top" secondItem="i43-4v-kxO" secondAttribute="bottom" constant="8" id="bCJ-1F-ihD"/>
+                            <constraint firstItem="0YA-le-21L" firstAttribute="leading" secondItem="ipV-Mp-FHg" secondAttribute="trailing" constant="20" id="dz3-2u-2N6"/>
                             <constraint firstItem="kNK-Ef-yCu" firstAttribute="leading" secondItem="8Ch-Iq-h7L" secondAttribute="leading" id="ex2-qa-QKe"/>
                             <constraint firstItem="i43-4v-kxO" firstAttribute="leading" secondItem="8Ch-Iq-h7L" secondAttribute="leading" id="gpr-dn-bo5"/>
+                            <constraint firstItem="0YA-le-21L" firstAttribute="top" secondItem="8Ch-Iq-h7L" secondAttribute="top" id="sZw-mi-fQE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Ch-Iq-h7L"/>
                     </view>
