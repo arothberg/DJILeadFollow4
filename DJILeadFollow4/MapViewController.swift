@@ -17,12 +17,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var editButton: UIButton!
     @IBOutlet var labelStatus: UILabel!
+    @IBAction func followBeacon(_ sender: UIButton) {
+        DemoUtility.dbref.child("game/beacon").observeSingleEvent(of: .value, with: { [weak self] (snapshot) in
+            if let longitude = snapshot.childSnapshot(forPath: "longitude").value as? Double, let latitude = snapshot.childSnapshot(forPath: "latitude").value as? Double
+            {
+                self?.beaconLocation = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            }
+        })
+    }
     
     @IBAction func dropBeacon(_ sender: UIButton) {
         let location = self.droneLocation
         if CLLocationCoordinate2DIsValid(location) {
             DemoUtility.dbref.child("game/beacon/longitude").setValue(location.longitude)
             DemoUtility.dbref.child("game/beacon/latitude").setValue(location.latitude)
+            DemoUtility.dbref.child("game/beacon/altitude").setValue(self.droneAltitude)
         }
     }
     
@@ -52,14 +61,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     let locationManager = CLLocationManager()
     var mapController : DJIMapController?
     var isEditingPoints = false
-    
-    var mode = "N/A"
-    var gps = "0"
-    var hs = "0.0 M/S"
-    var vs = "0.0 M/S"
-    var altitude = "0 M"
+    var beaconLocation : CLLocationCoordinate2D = kCLLocationCoordinate2DInvalid {
+        didSet {
+        }
+    }
     
     var droneLocation = kCLLocationCoordinate2DInvalid
+    var droneAltitude : Double = 0.0
     var userLocation = kCLLocationCoordinate2DInvalid
 
     override func viewDidLoad() {
@@ -134,12 +142,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func flightController(_ fc: DJIFlightController, didUpdate state: DJIFlightControllerState) {
         if let aircraftLocation = state.aircraftLocation {
+            
+            let mode = state.flightModeString
+            let gps = state.satelliteCount
+            let hs = sqrtf(state.velocityX*state.velocityX + state.velocityY*state.velocityY)
+            let vs = state.velocityZ
+            let altitude = state.altitude
+            
             self.droneLocation = aircraftLocation.coordinate
-            self.mode = state.flightModeString
-            self.gps = "\(state.satelliteCount)"
-            self.vs = "\(state.velocityZ)"
-            self.hs = "\(sqrtf(state.velocityX*state.velocityX + state.velocityY*state.velocityY))"
-            self.altitude = "\(state.altitude)"
+            self.droneAltitude = altitude
             
             self.mapController?.updateAircraft(location: self.droneLocation, mapView: self.mapView)
             let radianYaw = state.attitude.yaw * Double.pi / 180
@@ -147,17 +158,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             let latitude = String.localizedStringWithFormat("%.5f", self.droneLocation.latitude)
             let longitude = String.localizedStringWithFormat("%.5f", self.droneLocation.longitude)
-            let status = "Location: \(latitude):\(longitude)\nMode: \(self.mode)    GPS: \(self.gps)    HS: \(self.hs)   VS: \(self.vs)  Alt: \(self.altitude)"
+            let status = "Location: \(latitude):\(longitude)\nMode: \(mode) GPS: \(gps) HS: \(hs) m/s   VS: \(vs) m/s  Alt: \(altitude) m"
             updateStatusLabel(status: status)
 
             let kv : [String : Any] = [
                 "latitude" : self.droneLocation.latitude,
                 "longitude" : self.droneLocation.longitude,
-                "mode" : self.mode,
-                "gps" : self.gps,
-                "vs (m per s)" : self.vs,
-                "hs (m per s)" : self.hs,
-                "altitude" : self.altitude
+                "mode" : mode,
+                "gps" : gps,
+                "vs" : vs,
+                "hs" : hs,
+                "altitude" : altitude
             ]
             kv.forEach({ (k, v) in
                 DemoUtility.dbref.child("game/leader/\(k)").setValue(v)

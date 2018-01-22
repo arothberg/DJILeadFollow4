@@ -66,6 +66,13 @@
                                     <action selector="dropBeacon:" destination="c5e-zw-vAQ" eventType="touchUpInside" id="KEa-8b-lVx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wq4-ee-b36">
+                                <rect key="frame" x="238" y="20" width="44" height="30"/>
+                                <state key="normal" title="Follow"/>
+                                <connections>
+                                    <action selector="followBeacon:" destination="c5e-zw-vAQ" eventType="touchUpInside" id="BZP-ur-vWv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -74,7 +81,9 @@
                             <constraint firstItem="ipV-Mp-FHg" firstAttribute="top" secondItem="8Ch-Iq-h7L" secondAttribute="top" id="FIU-id-KNk"/>
                             <constraint firstItem="J1c-ow-as3" firstAttribute="leading" secondItem="8Ch-Iq-h7L" secondAttribute="leading" id="Fb7-wn-8t6"/>
                             <constraint firstItem="ipV-Mp-FHg" firstAttribute="leading" secondItem="i43-4v-kxO" secondAttribute="trailing" constant="15" id="MgE-F0-bir"/>
+                            <constraint firstItem="Wq4-ee-b36" firstAttribute="leading" secondItem="0YA-le-21L" secondAttribute="trailing" constant="22" id="NUR-Z6-Lc4"/>
                             <constraint firstItem="J1c-ow-as3" firstAttribute="bottom" secondItem="8Ch-Iq-h7L" secondAttribute="bottom" id="Ogw-wj-6SY"/>
+                            <constraint firstItem="Wq4-ee-b36" firstAttribute="top" secondItem="8Ch-Iq-h7L" secondAttribute="top" id="XFR-bc-Z1X"/>
                             <constraint firstItem="i43-4v-kxO" firstAttribute="top" secondItem="8Ch-Iq-h7L" secondAttribute="top" id="Yez-oJ-4rj"/>
                             <constraint firstItem="J1c-ow-as3" firstAttribute="trailing" secondItem="8Ch-Iq-h7L" secondAttribute="trailing" id="a8V-jZ-wQa"/>
                             <constraint firstItem="kNK-Ef-yCu" firstAttribute="top" secondItem="i43-4v-kxO" secondAttribute="bottom" constant="8" id="bCJ-1F-ihD"/>
