@@ -81,6 +81,7 @@
 				66D416A72013BD2400383BED /* Assets.xcassets */,
 				66F50199202F6CF800E31264 /* Whatever.storyboard */,
 				668DC1612013E583004CA07E /* AR.storyboard */,
+				66F5019B202F756200E31264 /* TS.storyboard */,
 				66D416AC2013BD2400383BED /* Info.plist */,
 				668DC1872013FA4E004CA07E /* GoogleService-Info.plist */,
 				668DC1832013ECAC004CA07E /* DebugTableViewController.swift */,
@@ -90,7 +91,6 @@
 				668DC190201456C2004CA07E /* DJIAircraftAnnotation.swift */,
 				6667F7032014E73C009C32EE /* DJIMapController.swift */,
 				6667F7052014F59C009C32EE /* DemoUtility.swift */,
-				66F5019B202F756200E31264 /* TS.storyboard */,
 			);
 			path = DJILeadFollow4;
 			sourceTree = "<group>";
