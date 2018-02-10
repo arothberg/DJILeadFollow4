@@ -19,6 +19,7 @@
 		668DC191201456C2004CA07E /* DJIAircraftAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DC190201456C2004CA07E /* DJIAircraftAnnotation.swift */; };
 		66D416A12013BD2400383BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D416A02013BD2400383BED /* AppDelegate.swift */; };
 		66D416A82013BD2400383BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66D416A72013BD2400383BED /* Assets.xcassets */; };
+		66DB8BF6202F809000C1AF01 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DB8BF5202F809000C1AF01 /* Default-568h@2x.png */; };
 		66F5019A202F6CF800E31264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F50199202F6CF800E31264 /* Main.storyboard */; };
 		66F5019C202F756200E31264 /* TS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F5019B202F756200E31264 /* TS.storyboard */; };
 /* End PBXBuildFile section */
@@ -39,6 +40,7 @@
 		66D416A02013BD2400383BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66D416A72013BD2400383BED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66D416AC2013BD2400383BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66DB8BF5202F809000C1AF01 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		66F50199202F6CF800E31264 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		66F5019B202F756200E31264 /* TS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TS.storyboard; sourceTree = "<group>"; };
 		724114041F0C6EDDA41AD76C /* Pods_DJILeadFollow4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DJILeadFollow4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +61,7 @@
 		66D416942013BD2400383BED = {
 			isa = PBXGroup;
 			children = (
+				66DB8BF5202F809000C1AF01 /* Default-568h@2x.png */,
 				66D4169F2013BD2400383BED /* DJILeadFollow4 */,
 				66D4169E2013BD2400383BED /* Products */,
 				985B8FB5C348891FA7738D0D /* Pods */,
@@ -195,6 +198,7 @@
 				668DC1882013FA4F004CA07E /* GoogleService-Info.plist in Resources */,
 				66F5019C202F756200E31264 /* TS.storyboard in Resources */,
 				66F5019A202F6CF800E31264 /* Main.storyboard in Resources */,
+				66DB8BF6202F809000C1AF01 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
