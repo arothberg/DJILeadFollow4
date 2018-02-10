@@ -77,22 +77,38 @@
 		66D4169F2013BD2400383BED /* DJILeadFollow4 */ = {
 			isa = PBXGroup;
 			children = (
+				66DB8BF3202F7D7700C1AF01 /* AR */,
+				66DB8BF4202F7D8000C1AF01 /* TS */,
 				66D416A02013BD2400383BED /* AppDelegate.swift */,
 				66D416A72013BD2400383BED /* Assets.xcassets */,
 				66F50199202F6CF800E31264 /* Main.storyboard */,
-				668DC1612013E583004CA07E /* AR.storyboard */,
-				66F5019B202F756200E31264 /* TS.storyboard */,
 				66D416AC2013BD2400383BED /* Info.plist */,
 				668DC1872013FA4E004CA07E /* GoogleService-Info.plist */,
+				6667F7052014F59C009C32EE /* DemoUtility.swift */,
+			);
+			path = DJILeadFollow4;
+			sourceTree = "<group>";
+		};
+		66DB8BF3202F7D7700C1AF01 /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				668DC1612013E583004CA07E /* AR.storyboard */,
 				668DC1832013ECAC004CA07E /* DebugTableViewController.swift */,
 				668DC1632013E60B004CA07E /* DebugTableViewCell.swift */,
 				668DC18A20144833004CA07E /* MapViewController.swift */,
 				668DC18C20145434004CA07E /* DJIAircraftAnnotationView.swift */,
 				668DC190201456C2004CA07E /* DJIAircraftAnnotation.swift */,
 				6667F7032014E73C009C32EE /* DJIMapController.swift */,
-				6667F7052014F59C009C32EE /* DemoUtility.swift */,
 			);
-			path = DJILeadFollow4;
+			path = AR;
+			sourceTree = "<group>";
+		};
+		66DB8BF4202F7D8000C1AF01 /* TS */ = {
+			isa = PBXGroup;
+			children = (
+				66F5019B202F756200E31264 /* TS.storyboard */,
+			);
+			path = TS;
 			sourceTree = "<group>";
 		};
 		985B8FB5C348891FA7738D0D /* Pods */ = {
