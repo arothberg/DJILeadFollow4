@@ -21,7 +21,6 @@
 		66D416A82013BD2400383BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66D416A72013BD2400383BED /* Assets.xcassets */; };
 		66DB8BF6202F809000C1AF01 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DB8BF5202F809000C1AF01 /* Default-568h@2x.png */; };
 		66F5019A202F6CF800E31264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F50199202F6CF800E31264 /* Main.storyboard */; };
-		66F5019C202F756200E31264 /* TS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F5019B202F756200E31264 /* TS.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +41,6 @@
 		66D416AC2013BD2400383BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66DB8BF5202F809000C1AF01 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		66F50199202F6CF800E31264 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		66F5019B202F756200E31264 /* TS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TS.storyboard; sourceTree = "<group>"; };
 		724114041F0C6EDDA41AD76C /* Pods_DJILeadFollow4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DJILeadFollow4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -87,7 +85,6 @@
 				6667F7052014F59C009C32EE /* DemoUtility.swift */,
 				66D416A72013BD2400383BED /* Assets.xcassets */,
 				66DB8BF3202F7D7700C1AF01 /* AR */,
-				66DB8BF4202F7D8000C1AF01 /* TS */,
 			);
 			path = DJILeadFollow4;
 			sourceTree = "<group>";
@@ -104,14 +101,6 @@
 				6667F7032014E73C009C32EE /* DJIMapController.swift */,
 			);
 			path = AR;
-			sourceTree = "<group>";
-		};
-		66DB8BF4202F7D8000C1AF01 /* TS */ = {
-			isa = PBXGroup;
-			children = (
-				66F5019B202F756200E31264 /* TS.storyboard */,
-			);
-			path = TS;
 			sourceTree = "<group>";
 		};
 		985B8FB5C348891FA7738D0D /* Pods */ = {
@@ -196,7 +185,6 @@
 				66D416A82013BD2400383BED /* Assets.xcassets in Resources */,
 				668DC1622013E583004CA07E /* AR.storyboard in Resources */,
 				668DC1882013FA4F004CA07E /* GoogleService-Info.plist in Resources */,
-				66F5019C202F756200E31264 /* TS.storyboard in Resources */,
 				66F5019A202F6CF800E31264 /* Main.storyboard in Resources */,
 				66DB8BF6202F809000C1AF01 /* Default-568h@2x.png in Resources */,
 			);
@@ -227,7 +215,6 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DJILeadFollow4/Pods-DJILeadFollow4-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${PODS_ROOT}/DJI-SDK-iOS/iOS_Mobile_SDK/DJISDK.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -236,7 +223,6 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DJISDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -400,7 +386,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AU659F828V;
+				DEVELOPMENT_TEAM = K9HP5J9XB3;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DJILeadFollow4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -417,7 +403,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AU659F828V;
+				DEVELOPMENT_TEAM = K9HP5J9XB3;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DJILeadFollow4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
