@@ -22,11 +22,42 @@
                     <connections>
                         <segue destination="b7N-Q1-7oY" kind="relationship" relationship="viewControllers" id="D3g-74-Ea2"/>
                         <segue destination="c5e-zw-vAQ" kind="relationship" relationship="viewControllers" id="huD-Uo-uLd"/>
+                        <segue destination="ZGs-7i-yEc" kind="relationship" relationship="viewControllers" id="pA1-2h-7Ts"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PXm-ai-t37" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5116" y="-823"/>
+        </scene>
+        <!--3D View-->
+        <scene sceneID="0Na-zA-RKe">
+            <objects>
+                <viewController id="ZGs-7i-yEc" customClass="SceneViewController" customModule="DJILeadFollow4" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xzr-g4-V9I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nwv-Tp-faR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                            </sceneKitView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Nwv-Tp-faR" firstAttribute="trailing" secondItem="bw5-TF-9O8" secondAttribute="trailing" id="EjX-29-jJ6"/>
+                            <constraint firstItem="Nwv-Tp-faR" firstAttribute="top" secondItem="Xzr-g4-V9I" secondAttribute="top" id="KWN-fo-KH8"/>
+                            <constraint firstItem="Nwv-Tp-faR" firstAttribute="bottom" secondItem="bw5-TF-9O8" secondAttribute="bottom" id="sDG-yJ-vmT"/>
+                            <constraint firstItem="Nwv-Tp-faR" firstAttribute="leading" secondItem="bw5-TF-9O8" secondAttribute="leading" id="zXm-gL-WDL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bw5-TF-9O8"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="3D View" id="uEZ-0y-HE1"/>
+                    <connections>
+                        <outlet property="sceneView" destination="Nwv-Tp-faR" id="3ar-hP-RcU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qd6-bi-iKn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5216.8000000000002" y="-106.59670164917542"/>
         </scene>
         <!--Map-->
         <scene sceneID="g3n-15-lcP">
